@@ -1,3 +1,7 @@
 function isEmpty(obj) {
-  // ваш код...
+	if ( ! obj || typeof obj !== 'object' ) {
+		return false;
+	}
+
+	return Object.keys(obj).length < 1;
 }
