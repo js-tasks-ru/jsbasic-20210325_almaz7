@@ -3,21 +3,21 @@ function getMinMax(str) {
 		return {};
 	}
 
-	let strArray = str.split( str, " " );
-	strArray = strArray.map( item => item.split( item, "," ) );
+	let strArray = str.split( " " );
+	strArray = strArray.map( item => item.split( "," ) );
 	strArray = strArray.flat( Infinity );
 
 
 	let result = {
-		min = null,
-		max = null,
+		min: strArray[0],
+		max: strArray[1],
 	}
 
 	for ( let i = 0; i < strArray.length; i ++ ) {
-		if ( Number( strArray[i] ) > result.min || result.min === null ) {
+		if ( Number( strArray[i] ) < result.min || result.min === null ) {
 			result.min = Number( strArray[i] );
 		}
-		if ( Number( strArray[i] ) < result.max || result.max === null ) {
+		if ( Number( strArray[i] ) > result.max || result.max === null ) {
 			result.max = Number( strArray[i] );
 		}
 	}
